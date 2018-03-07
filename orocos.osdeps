@@ -2,7 +2,7 @@ pkg-config:
     default: pkg-config
 
 boost:
-    debian,ubuntu:
+    debian,ubuntu,linuxmint:
         - libboost-dev
         - libboost-graph-dev
         - libboost-program-options-dev
@@ -10,7 +10,6 @@ boost:
         - libboost-thread-dev
         - libboost-filesystem-dev
         - libboost-iostreams-dev
-        - libboost-system-dev
     gentoo: dev-libs/boost
     fedora: boost-devel
     darwin: boost
@@ -20,12 +19,12 @@ boost:
     opensuse: boost-devel
 
 antlr:
-    debian,ubuntu: [antlr, libantlr-dev]
+    debian,ubuntu,linuxmint: [antlr, libantlr-dev]
     gentoo: dev-java/antlr_pic
     darwin: antlr
 
 omniorb:
-    debian,ubuntu:
+    debian,ubuntu,linuxmint:
         'squeeze,9.04,9.10,10.04,10.10,11.04':
             - omniidl4
             - libomniorb4-dev
@@ -42,7 +41,7 @@ omniorb:
     macos-port: omniORB
 
 tao:
-    debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
+    debian,ubuntu,linuxmint: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
     darwin: tao
 
 # Alias for ROS compatibility
@@ -52,7 +51,7 @@ readline:
 libreadline-dev:
     osdep: libreadline
 libreadline:
-    debian,ubuntu: libreadline-dev
+    debian,ubuntu,linuxmint: libreadline-dev
     gentoo: sys-libs/readline
     fedora: readline-devel
     opensuse: readline-devel
@@ -60,40 +59,38 @@ libreadline:
     arch: readline
 
 lua-dev:
-    debian,ubuntu: liblua5.1-0-dev
+    debian,ubuntu,linuxmint: liblua5.1-0-dev
     gentoo: dev-lang/lua
     fedora: lua-devel
     arch,manjarolinux: lua51
     opensuse: lua-devel
 ncurses:
-    debian,ubuntu: libncurses5-dev
+    debian,ubuntu,linuxmint: libncurses5-dev
     gentoo: sys-libs/ncurses
     fedora: ncurses-devel
     arch,manjarolinux: ncurses
     opensuse: ncurses-devel
 libncurses:
-    debian,ubuntu: [libncurses5-dev]
+    debian,ubuntu,linuxmint: [libncurses5-dev]
     gentoo: sys-libs/ncurses
     fedora: ncurses-devel
     opensuse: ncurses-devel
 libncurses-dev:
-    debian,ubuntu: [libncurses5-dev]
+    debian,ubuntu,linuxmint: [libncurses5-dev]
     gentoo: sys-libs/ncurses
     fedora: ncurses-devel
     opensuse: ncurses-devel
 netcdf:
-    debian,ubuntu: [libnetcdf-dev]
+    debian,ubuntu,linuxmint: [libnetcdf-dev]
 doxygen:
-    debian,ubuntu: doxygen
+    debian,ubuntu,linuxmint: doxygen
     gentoo: app-doc/doxygen
     fedora: doxygen
     arch,manjarolinux: doxygen
     opensuse: doxygen
     macos-brew: doxygen
 graphviz:
-    debian,ubuntu:
-    - graphviz
-    - graphviz-dev
+    debian,ubuntu,linuxmint: graphviz
     gentoo: graphviz
     fedora: graphviz
     arch,manjarolinux: graphviz
@@ -103,9 +100,7 @@ graphviz:
 
 gccxml:
     debian: gccxml
-    ubuntu: 
-      '12.04,14.04,14.10,15.04,15.10': gccxml
-      default: nonexistent
+    ubuntu,linuxmint: gccxml
     gentoo: dev-cpp/gccxml-0.9.0_pre20131217
     fedora: gccxml
     arch,manjarolinux: ignore
@@ -113,20 +108,20 @@ gccxml:
     darwin: ignore
 
 rdoc:
-    debian,ubuntu:
+    debian,ubuntu,linuxmint:
         ignore # it is installed by default these days
     fedora: ruby-rdoc
     default:
         gem
 
 rake:
-    debian,ubuntu: rake
+    debian,ubuntu,linuxmint: rake
     fedora: rubygem-rake
     default:
         gem
 
 libxml2:
-    debian,ubuntu: libxml2-dev
+    debian,ubuntu,linuxmint: libxml2-dev
     gentoo: dev-libs/libxml2
     fedora: libxml2-devel
     arch,manjarolinux: libxml2
@@ -134,7 +129,7 @@ libxml2:
     darwin: libxml2
 
 libxslt:
-    debian,ubuntu: libxslt1-dev
+    debian,ubuntu,linuxmint: libxslt1-dev
     gentoo: dev-libs/libxslt
     fedora: libxslt-devel
     arch,manjarolinux: libxslt
@@ -142,10 +137,10 @@ libxslt:
     darwin: libxslt
 
 ruby:
-    debian,ubuntu,gentoo,fedora,arch,manjarolinux,opensuse,darwin: ignore
+    debian,ubuntu,linuxmint,gentoo,fedora,arch,manjarolinux,opensuse,darwin: ignore
 
 facets:
-    ubuntu: gem
+    ubuntu,linuxmint: gem
     debian:
         squeeze: gem
         default: ruby-facets
@@ -154,7 +149,7 @@ facets:
         gem: facets
 
 xpath-perl:
-    ubuntu: libxml-xpath-perl
+    ubuntu,linuxmint: libxml-xpath-perl
     debian: libxml-xpath-perl
     fedora: perl-XML-XPath
     gentoo: dev-perl/XML-XPath
@@ -163,7 +158,7 @@ xpath-perl:
     darwin: ignore
 
 rake-compiler: 
-    debian,ubuntu:
+    debian,ubuntu,linuxmint:
         gem: rake-compiler<0.9.0
     default:
         gem: rake-compiler
@@ -172,17 +167,21 @@ hoe-yard: gem
 hoe: gem
 
 clang-3.4:
-    debian, ubuntu: [llvm-3.4, clang-3.4, libclang-3.4-dev]
+   ubuntu,linuxmint:
+       '16.04': [llvm-3.7, clang-3.7, libclang-3.8-dev]
+       default: [llvm-4.0, clang-4.0, libclang-4.0-dev]
+   debian: 
+       default: [llvm-3.4, clang-4.0, libclang-4.0-dev]
 
 castxml:
-    ubuntu:
+    ubuntu,linuxmint:
         '14.04,14.10,15.04,15.10': nonexistent
         default: castxml
     debian:
         default: castxml
 
 libclang-castxml:
-    ubuntu:
+    ubuntu,linuxmint:
         '14.04,14.10': nonexistent
         '15.04': [libclang-3.6-dev, llvm-3.6-dev]
         '15.10': [libclang-3.7-dev, llvm-3.7-dev]
@@ -191,12 +190,10 @@ libclang-castxml:
         default: [libclang-3.8-dev, llvm-3.8-dev]
 
 zlib:
-    ubuntu,debian: zlib1g-dev
+    ubuntu,linuxmint,debian: zlib1g-dev
 
 libedit:
-    ubuntu,debian: libedit-dev
+    ubuntu,linuxmint,debian: libedit-dev
     
 
 bundler: gem
-flexmock: gem
-minitest: gem
